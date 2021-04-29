@@ -12,6 +12,8 @@ enum FlutterErrorCode {
 public class SwiftMusickitPlugin: NSObject, FlutterPlugin {
     let systemMusicPlayer = MPMusicPlayerController.systemMusicPlayer
     
+    let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
+
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "musickit", binaryMessenger: registrar.messenger())
         let instance = SwiftMusickitPlugin()
@@ -144,8 +146,10 @@ public class SwiftMusickitPlugin: NSObject, FlutterPlugin {
     
     func appleMusicPlayTrackId(ids:[String], result: FlutterResult) {
         if #available(iOS 9.3, *) {
-            systemMusicPlayer.setQueue(with: ids)
-            systemMusicPlayer.play()
+            //systemMusicPlayer.setQueue(with: ids)
+            //systemMusicPlayer.play()
+            applicationMusicPlayer.setQueue(with: ids)
+            applicationMusicPlayer.play()
         } else {
             result(FlutterError(code: FlutterErrorCode.unavailable, message: "Not supported on iOS < 9.3", details: nil))
         }
