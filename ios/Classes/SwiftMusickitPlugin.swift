@@ -148,6 +148,7 @@ public class SwiftMusickitPlugin: NSObject, FlutterPlugin {
         if #available(iOS 9.3, *) {
             //systemMusicPlayer.setQueue(with: ids)
             //systemMusicPlayer.play()
+            print("HELLO")
             applicationMusicPlayer.setQueue(with: ids)
             applicationMusicPlayer.play()
         } else {

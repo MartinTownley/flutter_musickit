@@ -6,3 +6,7 @@
 pubspec.lock
 
 build/
+
+android/.classpath
+android/.project
+android/.settings/
